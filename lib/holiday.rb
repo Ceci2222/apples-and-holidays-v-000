@@ -91,6 +91,7 @@ def all_holidays_with_bbq(holiday_hash)
      if supplies == "BBQ"
       season.key
     end
+  end
    
  end
        
