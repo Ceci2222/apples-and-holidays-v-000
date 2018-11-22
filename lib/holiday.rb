@@ -68,7 +68,6 @@ def all_winter_holiday_supplies(holiday_hash)
 end
 
 def all_supplies_in_holidays(holiday_hash)
-  binding.pry
   holiday_hash.each do |season, holiday_info|
     season_string = season.to_s
     season_string_caps = "#{season_string.capitalize!}"
