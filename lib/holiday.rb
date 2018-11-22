@@ -90,8 +90,9 @@ def all_holidays_with_bbq(holiday_hash)
    holiday.each do |holiday, supplies| 
      #binding.pry
      if supplies == "BBQ"
-      return holiday
+       bbq_days = holiday.keys
     end
+    bbq_days
   end
    
  end
