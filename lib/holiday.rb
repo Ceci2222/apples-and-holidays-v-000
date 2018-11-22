@@ -18,34 +18,71 @@ def second_supply_for_fourth_of_july(holiday_hash)
   #   }
   # }
   # return the second element in the 4th of July array
+holiday_hash[:summer][:fourth_of_july][1]
+  
 end
 
 def add_supply_to_winter_holidays(holiday_hash, supply)
   # holiday_hash is identical to the one above
   # add the second argument, which is a supply, to BOTH the
   # Christmas AND the New Year's arrays
+  
+  holiday_hash.each do |season, holiday|
+    if season == :winter
+      holiday.each {|holiday, supplies| supplies << supply}
+    end
+  end
 
 end
 
 
 def add_supply_to_memorial_day(holiday_hash, supply)
+  holiday_hash.each do |season, holiday|
+  if season == :spring
+      holiday.each {|holiday, supplies| supplies << supply}
+    end
+  end
   # again, holiday_hash is the same as the ones above
   # add the second argument to the memorial day array
 
 end
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
+  holiday_hash[season][holiday_name] = supply_array
   # code here
   # remember to return the updated hash
-
+return holiday_hash
 end
 
 def all_winter_holiday_supplies(holiday_hash)
+  supply_list = ""
+  holiday_hash.each do |season, holiday_info|
+    if season == :winter
+      supply_list = holiday_info.values.flatten
+    end
+  end
+  supply_list
+    
   # return an array of all of the supplies that are used in the winter season
-
+  
 end
 
 def all_supplies_in_holidays(holiday_hash)
+  #binding.pry
+  holiday_hash.each do |season, holiday_info|
+    season_string = season.to_s
+    season_string_caps = "#{season_string.capitalize!}"
+    holiday_info.each do |holiday, supplies|
+      holiday_name_string = holiday.to_s
+      holiday_name_array = holiday_name_string.split
+        holiday_name_array.each {|holiday_name| holiday_name.capitalize!}
+        holiday_name_string_caps = holiday_name.join(" ")
+        puts "#{season_string_caps}:" 
+        puts  " #{holiday_name_string_caps}: #{supplies}"
+
+    end
+  end
+  
   # iterate through holiday_hash and print items such that your readout resembles:
   # Winter:
   #   Christmas: Lights, Wreath
