@@ -77,7 +77,7 @@ def all_supplies_in_holidays(holiday_hash)
         holiday_array.each {|holiday_name| "#{holiday_name.capitalize!}"}
         holiday_name_string_caps = holiday_array.join(" ")
         puts "#{season_string_caps}:" 
-        puts  " #{holiday_name_string_caps}: #{supplies}"
+        puts  "  #{holiday_name_string_caps}: #{supplies}"
        binding.pry
     end
   end
